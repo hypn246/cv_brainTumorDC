@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Upload page{% endblock title %}
+{% block name %}<h1>Upload page<h1>{% endblock name %}
+{% block content %}
+	<h1>Insert your infomation:</h1>
+	<form action="/detc/upload" method='POST' enctype="multipart/form-data">
+		{% comment %} <label for="feed">Name:</label>
+		<input type="text" name="feed" id=""><br>
+		<label for="feed">Age:</label>
+		<input type="text"S name="feed" id=""><br>
+		<label for="feed">Resigned hospital:</label>
+		<input type="text" name="feed" id=""><br>
+		<label for="feed">Is this happed before? :</label>
+		<label for="yes">Yes</label>
+		<input type="radio" name="feed" id="" value="yes">
+		<label for="no">NO</label>
+		<input type="radio" name="feed" id="" value="no"><br>
+		<label for="feed">Image:</label>
+		<input type="file" name="feed" id=""><br> {% endcomment %}
+		<div class="form">
+			{{form.as_p}}
+		</div>
+		<button type="submit">Submit</button>
+	</form>
+	<a href="/detc">return home</a>
+{% endblock content %}

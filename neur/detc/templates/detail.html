@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% comment %} quy xuong cho t load model {% endcomment %}
+{%load loadModel %}
+
+
+{% block title %}Predict page{% endblock title %}
+{% block name %}<h1>Predict page</h1>{% endblock name %}
+{% block content %}
+<div>
+	<h2>
+		profile
+	</h2>
+</div>
+<div>
+			<h1>{{infs.name}}</h1>
+			<img src="{{infs.image.url}}" alt="" height="300px" width="300px">
+			<p>Seem like 
+				 {%loadModel infs.image.url%}  
+				this this patient's MRI image</p>
+				<p>{% url 'detection:delete' infs.id%}</p>
+				<a href="{% url 'detection:delete' infs.id%}">delete this section</a>
+</div>
+<div>
+	<a href="/detc">Home</a>
+</div>
+{% endblock content %}

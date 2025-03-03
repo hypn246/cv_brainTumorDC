@@ -1,0 +1,9 @@
+tensorflow==2.17.0
+keras
+opencv-python
+pillow==10.4.0
+scipy==1.14.0
+
+simple_parsing==0.1.5
+SimpleITK==2.3.1
+sqlparse==0.2.4

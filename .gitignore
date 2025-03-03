@@ -1,0 +1,11 @@
+/neur/neur/.env
+/neur/detc/requirement.txt
+/neur/note.md
+
+/frontend/public/test/
+/neur/upload/classifi_mri_upload/
+
+docker-compose.yml
+/neur/Dockerfile
+/frontend/Dockerfile
+/frontend/.dockerignore

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Predict page{% endblock title %}
+{% block name %}<h1>Predict page</h1>{% endblock name %}
+{% block content %}
+<div>
+	<h2>
+		see and pick your profile
+	</h2>
+</div>
+<div>
+	{% for profile in  profiles%}
+		<a href="/detc/predict/detail/{{profile.id}}">
+			<h3>{{profile.name}}</h3>
+			<img src="{{profile.image.url}}" alt="" height="300px" width="300px">
+			<a href="/detc/delete/<int:id>">delete</a>
+		</a>
+	{% endfor %}
+</div>
+<div><a href="/detc">home</a></div>
+{% endblock content %}
