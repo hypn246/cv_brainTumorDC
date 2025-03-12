@@ -92,7 +92,14 @@ WSGI_APPLICATION = 'neur.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': os.getenv('DB')
+    'default': {
+        'ENGINE':'django.db.backends.mysql',
+        'NAME':'white',
+        'HOST':'127.0.0.1',
+        'PORT':'3306',
+        'USER':os.getenv("USER"),
+        'PASSWORD':os.getenv("PASSWORD")
+    }
 }
 
 
