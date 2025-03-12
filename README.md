@@ -1,7 +1,11 @@
 # BRAIN DISEASE CLASSIFICATION USING MRI IMAGEs
 ![alt](./asset/p1.png)
 
-This backend use Resnet34 model with ~94% accuracy. The model's file was so big that I cann't push into Github so **the model file: .keras was missing**. However, I will provide the link to model for anyone interested in so you can add into backend and also the Github link to model training page I used to make that model.
+### Review
+This project create a full-stack webapp using a deep learning model to detect/classify brain tumor in MRI image.
+The tech using in this project is NextJS for frontend, Django for backend and MySQL.
+
+This backend use 2 Resnet34 model with ~94% accuracy. The model's file was so big that I cann't push into Github so **the model file: .keras was missing**. However, I made 2 repo about these model and enclose it below just in case someone interested in my training process. 
 
 Github link:
 - Brain tumor detection: [https://github.com/hypn246/BTD](https://github.com/hypn246/BTD)
