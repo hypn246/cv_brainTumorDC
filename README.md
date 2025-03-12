@@ -30,5 +30,6 @@ In frontend:
 ### Run frontend:
 `cd frontend`-> `npm run dev`
 
-App should run on [link](http://localhost:3000)
+App should run on [http://localhost:3000](http://localhost:3000)
+
 ![alt](./asset/p3.png)
