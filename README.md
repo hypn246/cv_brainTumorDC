@@ -24,3 +24,7 @@ In frontend:
 
 ### Run frontend:
 `cd frontend`-> `npm run dev`
+
+![alt](./asset/p1.png)
+![alt](./asset/p3.png)
+![alt](./asset/p4.png)
