@@ -4,8 +4,8 @@
 This backend use Resnet34 model with ~94% accuracy. The model's file was so big that I cann't push into Github so **the model file: .keras was missing**. However, I will provide the link to model for anyone interested in so you can add into backend and also the Github link to model training page I used to make that model.
 
 Github link:
-- Brain tumor detection: 
-- Brain tumor classification:
+- Brain tumor detection: [https://github.com/hypn246/BTD](https://github.com/hypn246/BTD)
+- Brain tumor classification: [https://github.com/hypn246/BTC](https://github.com/hypn246/BTC)
 
 This project including a tumor detection and brain tumor classification model, however I forgot to separate these 2 so all api and view+model+controller in detc file of backend (●'◡'●)
 
