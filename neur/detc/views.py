@@ -9,6 +9,22 @@ from .serializers import DetectSerializer, ClassifiSerializer
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login , logout
 
+import os
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
+
+from dotenv import load_dotenv
+load_dotenv()
+MODEL_IMG_UPLOAD=os.environ.get("MODEL_IMG_UPLOAD")
+DETECTION_MODEL_PATH = os.environ.get("DETECTION_MODEL_PATH")
+CLASSIFICATION_MODEL_PATH=os.getenv("CLASSIFICATION_MODEL_PATH")
+# os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
+IMG_SIZE=256
+import tensorflow as tf
+from keras.models import load_model
+import cv2
+import numpy as np
+from PIL import Image
 # Create your views here.
     
 def home(request):
@@ -23,18 +39,16 @@ def detectPredict(request):
     data=DetectSerializer(profiles, many=True)
     return Response(data.data, status=200)
 
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
-# os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
-import tensorflow as tf
-from keras.models import load_model
-import cv2
-import numpy as np
-from PIL import Image
-IMG_SIZE=256
 def tumor_detect(param):
-    model=load_model('C:/Users/admin/Desktop/PRO/Project/deep_learning/model/tumor_Alexx256_b32_sigmoid_BC_12epochs.keras')
-    img = cv2.imread('C:/Users/admin/Desktop/PRO/Project/white_brain/neur'+param)
+    model=load_model(DETECTION_MODEL_PATH)
+    image_path = MODEL_IMG_UPLOAD+param # Join paths correctly
+    img = cv2.imread(image_path)  # No extra arguments
+
+    if img is None:
+        print("Error: Could not read image.")
+    else:
+        print("Image loaded successfully.")
+
     img=Image.fromarray(img)
     img=img.resize((IMG_SIZE,IMG_SIZE))
     img=np.array(img)
@@ -63,14 +77,14 @@ def detectUpload(request):
     data=(request.POST).dict()
     print(data)
     name=data.get('name')
-    age=data.get('age')
+    birth=data.get('birth')
     resigned_hospital=data.get('resigned_hospital')
     desc=data.get('desc')
     image = request.FILES.get('image')
     print(image)
     new=DetectProfile.objects.create(
         name=name,
-        age=age,
+        birth=birth,
         resigned_hospital=resigned_hospital,
         image=image,
         desc=desc,
@@ -88,12 +102,17 @@ def detectDelete(request, id):
 
 ###
 
-
 ###
 # tumor classification
 def tumor_classifi(param):
-    model=load_model("C:/Users/admin/Desktop/PRO/Project/deep_learning/model/Tumor_classification_Res3_6epoch.keras")
-    img = cv2.imread('C:/Users/admin/Desktop/PRO/Project/white/neur'+param)
+    model=load_model(CLASSIFICATION_MODEL_PATH)
+    image_path = MODEL_IMG_UPLOAD+param # Join paths correctly
+    img = cv2.imread(image_path)  # No extra arguments
+
+    if img is None:
+        print("Error: Could not read image.")
+    else:
+        print("Image loaded successfully.")
     img=Image.fromarray(img)
     img=img.resize((IMG_SIZE,IMG_SIZE))
     img=np.expand_dims(img,axis=0)
@@ -135,7 +154,7 @@ def classifiUpload(request):
     data=(request.POST).dict()
     print(data)
     name=data.get('name')
-    # birth=data.get('birth')
+    birth=data.get('birth')
     resigned_hospital=data.get('resigned_hospital')
     desc=data.get('desc')
     phone=data.get('phone')
@@ -145,7 +164,7 @@ def classifiUpload(request):
     image = request.FILES.get('image')
     new=ClassifiProfile.objects.create(
         name=name,
-        # birth=birth,
+        birth=birth,
         resigned_hospital=resigned_hospital,
         image=image,
         desc=desc,

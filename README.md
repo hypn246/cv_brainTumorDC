@@ -21,9 +21,16 @@ In backend:
 - Make sure you install Django with
     'rest_framework',
     'corsheaders',
-- Create .env file in backend with SECRET_KEY (but this is for fun, don't mention it) but the DB is a must, contain you config of your database.
+- Create .env file in backend. SECRET_KEY doesn't mean so much but the other should be like:
+```command
+DETECTION_MODEL_PATH=path to your model
+CLASSIFICATION_MODEL_PATH=path to your model
+MODEL_IMG_UPLOAD=your path/neur
+SECRET_KEY=
+USER= username of your db connection
+PASSWORD= password of your db connection
+```
 - This project won't run with empty model which couldn't upload because the size, so download one or train it yourself. If you need my model, please check out my above github link.
-- You also need to change path of the model in /neur/detc/views.py
 
 In frontend:
 - Install nessesary modules: `npm install`

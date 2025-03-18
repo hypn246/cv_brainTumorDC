@@ -7,7 +7,7 @@ const Signup = () => {
         <div className='center flex-wrap justify-between gd6 rounded-2xl p-10 w-[80%]'>
             <div className='center flex-col w-[40%] h-full '>
                 <h1>Sign up</h1>
-                <p>Within a minute!</p>
+                <p>BETA TESTING-UNAVAILABLE!</p>
             </div>
             <div className='text-black center w-[60%]'>
                 <form className='upform w-full' method="POST"

@@ -24,7 +24,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -97,8 +97,8 @@ DATABASES = {
         'NAME':'white',
         'HOST':'127.0.0.1',
         'PORT':'3306',
-        'USER':os.getenv("USER"),
-        'PASSWORD':os.getenv("PASSWORD")
+        'USER':os.environ.get("USER"),
+        'PASSWORD':os.environ.get("PASSWORD")
     }
 }
 

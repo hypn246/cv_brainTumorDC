@@ -6,6 +6,7 @@ const page = () => {
     <div className='center'>
         <div className='gd14 login center flex-col bg-transparent bg-indigo-950 my-10 p-10 rounded-2xl'>
             <h1>Login</h1>
+            <p>BETA TESTING-UNAVAILABLE</p>
             <div className='center flex-col'>
                 <form action="POST" className='upform flex-col'>
                     <label htmlFor="">User</label>

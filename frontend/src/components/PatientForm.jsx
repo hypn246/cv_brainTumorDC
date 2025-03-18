@@ -20,7 +20,7 @@ const PatientForm = (props) => {
   const newDetect=async()=>{ 
     let body=new FormData
     body.append('name', name)
-
+    body.append('birth',birth)
     body.append('image', image)
     body.append('address', address)
     body.append('phone', phone)
@@ -51,9 +51,9 @@ const PatientForm = (props) => {
                 placeholder='Name...'/>
           
           {/* patient birthday  */}
-          {/* <label htmlFor="">Date of birth</label>
-          <input type="date" name="birth" id="birth" required
-                 onChange={(e)=>handelBirth(e.target.value)} placeholder='Age...' /> */}
+          <label htmlFor="">Age</label>
+          <input type="number" name="birth" id="birth" required
+                 onChange={(e)=>setBirth(e.target.value)} placeholder='Age...' />
 
           {/* patien's sex */}
           <label>Sex</label>

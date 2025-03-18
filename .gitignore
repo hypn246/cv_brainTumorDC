@@ -1,4 +1,5 @@
-/neur/neur/.env
+.env
+neur/.env
 /neur/detc/requirement.txt
 /neur/note.md
 
